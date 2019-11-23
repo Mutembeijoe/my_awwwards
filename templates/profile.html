@@ -1,0 +1,9 @@
+{% extends 'base.html' %}
+{% block content%}
+<div class="profile_details my-3">
+    <img src="{{object.avatar.url}}" alt="{{object}}" class="img-thumbnail profile_avatar">
+    <div class="my-4">
+        <h4>{{object.username}}</h4>
+    </div>
+</div>
+{% endblock content%}
