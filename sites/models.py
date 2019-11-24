@@ -39,6 +39,7 @@ class Rating(models.Model):
     )
 
     site = models.ForeignKey(Site, related_name='rating', on_delete=models.CASCADE)
+    author = models.ForeignKey(get_user_model(), related_name='ratings', on_delete=models.CASCADE)
 
 
 
