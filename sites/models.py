@@ -22,6 +22,25 @@ class Site(models.Model):
     def get_absolute_url(self):
         return reverse('site', args=[str(self.id)])
     
+class Rating(models.Model):
+    design = models.IntegerField(
+        default=1,
+        validators=[MaxValueValidator(10), MinValueValidator(1)]
+    )
+
+    usability = models.IntegerField(
+        default=1,
+        validators=[MaxValueValidator(10), MinValueValidator(1)]
+    )
+
+    content = models.IntegerField(
+        default=1,
+        validators=[MaxValueValidator(10), MinValueValidator(1)]
+    )
+
+    site = models.ForeignKey(Site, related_name='rating', on_delete=models.CASCADE)
+
+
 
 
 
