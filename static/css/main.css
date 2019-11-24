@@ -16,12 +16,11 @@
     border-radius: 50%;
 }
 
-/* .my_navbar{
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-} */
-
-/* .awwwards{
-    margin-right: 300px;
-} */
+.site_display_image{
+    height:200px;
+    min-width:19rem;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+.site_display_card_body{}
