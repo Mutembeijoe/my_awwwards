@@ -8,6 +8,9 @@ from django.core.validators import MaxValueValidator, MinValueValidator
 class Tag(models.Model):
     name = models.CharField(max_length=13)
 
+    def __str__(self):
+        return self.name
+
 
 class Site(models.Model):
     cover = models.ImageField(upload_to='sites_images')
@@ -39,9 +42,10 @@ class Rating(models.Model):
     )
 
     site = models.ForeignKey(Site, related_name='rating', on_delete=models.CASCADE)
-    author = models.ForeignKey(get_user_model(), related_name='ratings', on_delete=models.CASCADE)
+    author = models.ForeignKey(get_user_model(), related_name='ratings', blank=True,null=True,on_delete=models.CASCADE)
 
-
+    def __str__(self):
+        return f'D:{self.design}, U:{self.usability}, C:{self.content} '
 
 
 
