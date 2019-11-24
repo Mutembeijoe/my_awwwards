@@ -43,6 +43,7 @@ INSTALLED_APPS = [
     
     # local
     'accounts.apps.AccountsConfig',
+    'sites.apps.SitesConfig'
 ]
 
 MIDDLEWARE = [
