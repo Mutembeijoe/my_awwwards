@@ -1,35 +1,40 @@
-<nav class="navbar navbar-expand-lg navbar-light bg-light border-bottom p-3">
+<nav class="navbar navbar-expand-lg navbar-light bg-light border-bottom p-3 my_navbar">
     <!-- <button class="" id="menu-toggle">Toggle Menu</button> -->
     <div style="cursor: pointer; height: 100%;" id='menu-toggle' class="border-right">
         <span class="navbar-toggler-icon"></span>
         <span class="px-2">MENU</span>
     </div>
-
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
         aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
     </button>
 
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
-        <ul class="navbar-nav ml-auto mt-2 mt-lg-0">
-            <li class="nav-item active">
-                <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
-            </li>
+        <ul class="navbar-nav ml-auto mt-2">
+            {% if user.is_authenticated%}
             <li class="nav-item">
-                <a class="nav-link" href="#">Link</a>
+                <a class="nav-link" href="{%url 'profile' user.id%}">{{user.username}}</a>
             </li>
             <li class="nav-item dropdown">
                 <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown"
                     aria-haspopup="true" aria-expanded="false">
-                    Dropdown
+                    <img src="{{user.avatar.url}}" alt="user.username" class="navbar_avatar">
                 </a>
                 <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
-                    <a class="dropdown-item" href="#">Action</a>
-                    <a class="dropdown-item" href="#">Another action</a>
+                    <a class="dropdown-item" href="{%url 'profile' user.pk%}">Profile</a>
+                    <a class="dropdown-item" href="#">Settings</a>
                     <div class="dropdown-divider"></div>
-                    <a class="dropdown-item" href="#">Something else here</a>
+                    <a class="dropdown-item" href="{% url 'logout'%}">LogOut</a>
                 </div>
             </li>
+            <li>
+                <a class="btn btn-success btn-large h-100 py-3 ml-2" href="">Submit your Site!</a>
+            </li>
+            {% else %}
+            <li class="nav-item">
+                <a class="nav-link" href="{% url 'login' %}">REGISTER/LOGIN</a>
+            </li>
+            {% endif %}
         </ul>
     </div>
 </nav>

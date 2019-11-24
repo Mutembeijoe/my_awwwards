@@ -10,6 +10,7 @@ body {
 #sidebar-wrapper {
   min-height: 100vh;
   margin-left: -15rem;
+  /* changed from -15 */
   -webkit-transition: margin .25s ease-out;
   -moz-transition: margin .25s ease-out;
   -o-transition: margin .25s ease-out;
@@ -30,9 +31,10 @@ body {
 }
 
 #wrapper.toggled #sidebar-wrapper {
-  margin-left: 0;
+  margin-left: 0rem;
+   /*changed from 0  */
 }
-
+/* 
 @media (min-width: 768px) {
   #sidebar-wrapper {
     margin-left: 0;
@@ -45,5 +47,5 @@ body {
 
   #wrapper.toggled #sidebar-wrapper {
     margin-left: -15rem;
-  }
+  } */
 }

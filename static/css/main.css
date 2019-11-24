@@ -10,9 +10,18 @@
     border-radius: 50%;
 }
 
-/* .login_form{
-    display:flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
+.navbar_avatar{
+    width:30px;
+    height:30px;
+    border-radius: 50%;
+}
+
+/* .my_navbar{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+} */
+
+/* .awwwards{
+    margin-right: 300px;
 } */
