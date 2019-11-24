@@ -23,4 +23,19 @@
     background-position: center;
     background-repeat: no-repeat;
 }
-.site_display_card_body{}
+.site_jumbo{
+    height:50vh;
+    border-radius:10px ;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+}
+.jumbo_opacity{
+    background-color:black ;
+    opacity: .4;
+    border-radius:10px ;
+}
+.site_page{
+    background-color:#F4F7F6;
+    height: 100vh;
+}
