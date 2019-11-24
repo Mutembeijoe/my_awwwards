@@ -18,6 +18,8 @@ class Site(models.Model):
     description = models.TextField()
     tags = models.ManyToManyField(Tag)
     author = models.ForeignKey(get_user_model(), on_delete=models.CASCADE, related_name='sites')
+    created_at = models.DateTimeField(auto_now_add=True, blank=True, null=True)
+    
 
     def __str__(self):
         return self.title
