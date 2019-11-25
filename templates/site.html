@@ -2,7 +2,7 @@
 {% block content %}
 <div class="site_page">
     <div class="row">
-        <div class="col-md-8 mx-auto">
+        <div class="col-md-8 mx-auto my-3">
             {% if user == object.author %}
             <div class="my-3">
                 <a href="{% url 'edit_site' object.id %}" class="btn btn-primary btn-sm">Edit</a>
@@ -13,6 +13,7 @@
                 <div class="h-100 w-100 jumbo_opacity">
                 </div>
             </div>
+            <p><span class="h5">By: </span> {{object.author}}</p>
             <div id="ratings" class="my-3">
                 <div id="design">
                     <div class="c100 p{{design}}">
@@ -44,6 +45,9 @@
                     </div>
                     <h5 class="text-center">Content</h5>
                 </div>
+            </div>
+            <div>
+                <p><span class="h5">Description : </span>{{object.description}}</p>
             </div>
             <!-- Button trigger modal -->
             <button type="button" class="btn btn-dark btn-block" data-toggle="modal" data-target="#exampleModalCenter">
@@ -92,7 +96,6 @@
                         </div>
                         <div class="modal-footer">
                             <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                            <!-- <button type="button" class="btn btn-primary">Save changes</button> -->
                         </div>
                     </div>
                 </div>
