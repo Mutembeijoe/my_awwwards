@@ -2,6 +2,7 @@ from django.shortcuts import render
 from django.views.generic.list import ListView
 from django.views.generic.detail import DetailView
 from django.views.generic.edit import CreateView, UpdateView
+from django.views.generic import TemplateView
 from django.db.models import Sum
 from django.http import JsonResponse
 from django.urls import reverse
@@ -66,3 +67,7 @@ def vote(request):
     else:
         data = {'success':'Sorry, You can only vote once!'}
     return JsonResponse(data)
+
+
+class ApiView(TemplateView):
+    template_name = 'apis.html'
