@@ -19,6 +19,7 @@ class Site(models.Model):
     tags = models.ManyToManyField(Tag)
     author = models.ForeignKey(get_user_model(), on_delete=models.CASCADE, related_name='sites')
     created_at = models.DateTimeField(auto_now_add=True, blank=True, null=True)
+    link = models.URLField(blank=True, null=True)
     
 
     def __str__(self):
