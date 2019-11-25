@@ -4,7 +4,40 @@
     <div class="row">
         <div class="col-md-8 mx-auto">
             <div class="site_jumbo" style="background-image: url({{object.cover.url}});">
-                <div class="h-100 w-100 jumbo_opacity"></div>
+                <div class="h-100 w-100 jumbo_opacity">
+                </div>
+            </div>
+            <div id="ratings" class="my-3">
+                <div id="design">
+                    <div class="c100 p{{design}}">
+                        <span>{{design}}%</span>
+                        <div class="slice">
+                            <div class="bar"></div>
+                            <div class="fill"></div>
+                        </div>
+                    </div>
+                    <h5 class="text-center">Design</h5>
+                </div>
+                <div id="usability" class="mx-3">
+                    <div class="c100 p{{usability}} green">
+                        <span>{{usability}}%</span>
+                        <div class="slice">
+                            <div class="bar"></div>
+                            <div class="fill"></div>
+                        </div>
+                    </div>
+                    <h5 class="text-center">Usability</h5>
+                </div>
+                <div id="content" class="mx-3">
+                    <div class="c100 p{{content}} orange">
+                        <span>{{content}}%</span>
+                        <div class="slice">
+                            <div class="bar"></div>
+                            <div class="fill"></div>
+                        </div>
+                    </div>
+                    <h5 class="text-center">Content</h5>
+                </div>
             </div>
             <div class="btn btn-dark w-100 py-4">
                 <a href="" class="text-white h4">Vote</a>
