@@ -13,7 +13,7 @@ class CustomUser(AbstractUser):
         return self.username
 
     def get_absolute_url(self):
-        reverse('profile', args=[str(self.id)])
+        return reverse('profile', args=[str(self.id)])
         
 
         

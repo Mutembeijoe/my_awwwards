@@ -1,9 +1,9 @@
 from django.shortcuts import render
 from django.views.generic.detail import DetailView
-from django.views.generic.edit import CreateView
+from django.views.generic.edit import CreateView, UpdateView
 from django.urls import reverse_lazy
 from .models import CustomUser
-from .forms import CustomUserCreationForm
+from .forms import CustomUserCreationForm,CustomUserChangeForm
 
 
 # Create your views here.
@@ -19,3 +19,9 @@ class UserCreateView(CreateView):
     template_name="signup.html"
     # fields = ('username', 'password1','email', 'telephone', 'bio')
     success_url = reverse_lazy('login')
+
+class UserUpdateView(UpdateView):
+    model=CustomUser
+    template_name='update_profile.html'
+    fields = ('avatar','bio','telephone')
+    # success_url= reverse_lazy('profile', args=[user.id])

@@ -5,5 +5,43 @@
     <div class="my-4">
         <h4>{{object.username}}</h4>
     </div>
+    <div>
+        <span class="mx-2"><span class="lead">Email: </span>{{object.email}}</span>
+        <span class="mx-2"><span class="lead">Telephone:</span>{{object.telephone}}</span>
+    </div>
+    <div>
+        <span><a href="{% url 'update_user' object.id%}" class="btn btn-sm btn-outline-secondary mx-3">Edit
+                profile</a></span>
+    </div>
+</div>
+<h3 class="border-bottom text-center w-75 mx-auto">My sites</h3>
+<div class="row">
+    {% for site in object.sites.all %}
+    <div class="col-lg-4 col-md-6 my-3">
+        <div class="card mx-auto" style="width: 20rem;">
+            <a href="{% url 'site' site.id %}">
+                <div class="site_display_image" style="background-image: url({{site.cover.url}});"></div>
+            </a>
+            <div class="card-body site_display_card_body">
+                <div>
+                    <a href="{% url 'site' object.id %}">
+                        <span class="h6 text-center">{{site.title}}</span>
+                    </a>
+                </div>
+                <div style="display:flex; justify-content: flex-end;">
+                    <span>{{site.created_at | date:"F d, Y" }}</span>
+                </div>
+                <hr>
+                <div style="display:flex; justify-content:space-between;">
+                    <span>{{site.author}}</span>
+                    {% for tag in site.tags.all %}
+                    <span class="badge badge-light">{{tag}}</span>
+                    {% endfor%}
+                </div>
+            </div>
+        </div>
+    </div>
+
+    {%endfor%}
 </div>
 {% endblock content%}
