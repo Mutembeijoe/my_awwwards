@@ -40,10 +40,12 @@ INSTALLED_APPS = [
 
     # 3rd Party
     'crispy_forms',
+    'rest_framework',
     
     # local
     'accounts.apps.AccountsConfig',
-    'sites.apps.SitesConfig'
+    'sites.apps.SitesConfig',
+    'apis.apps.ApisConfig'
 ]
 
 MIDDLEWARE = [
