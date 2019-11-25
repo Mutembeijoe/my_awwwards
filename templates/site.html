@@ -45,10 +45,58 @@
                     <h5 class="text-center">Content</h5>
                 </div>
             </div>
-            <div class="btn btn-dark w-100 py-4">
-                <a href="" class="text-white h4">Vote</a>
-            </div>
+            <!-- Button trigger modal -->
+            <button type="button" class="btn btn-dark btn-block" data-toggle="modal" data-target="#exampleModalCenter">
+                Vote for Us
+            </button>
 
+            <!-- Modal -->
+            <div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog"
+                aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+                <div class="modal-dialog modal-dialog-centered" role="document">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h5 class="modal-title" id="exampleModalCenterTitle">Cast your Vote Here</h5>
+                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                            </button>
+                        </div>
+                        <div class="modal-body">
+                            <form id="rating_form" method="POST" action="">
+                                {% csrf_token %}
+                                <div class="form-group">
+                                    <label for="formControlRange">Usability</label>
+                                    <span id='usability_value'></span>
+                                    <input class="form-control-range" type="range" name="usability_range"
+                                        id="usability_range" min="1" max="10" step="1">
+
+                                </div>
+                                <div class="form-group">
+                                    <label for="formControlRange">Content</label>
+                                    <span id='content_value'></span>
+                                    <input class="form-control-range" type="range" name="content_range"
+                                        id="content_range" min="1" max="10" step="1">
+
+                                </div>
+                                <div class="form-group">
+                                    <label for="formControlRange">Design</label>
+                                    <span id='design_value'></span>
+                                    <input class="form-control-range" type="range" name="design_range" id="design_range"
+                                        min="1" max="10" step="1">
+                                </div>
+                                <div class="form-group" style="display:none">
+                                    <input type="number" name="site_id" id="site_id" value="{{object.id}}">
+                                </div>
+                                <button type="submit" class="btn btn-success btn-sm">Vote</button>
+                            </form>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                            <!-- <button type="button" class="btn btn-primary">Save changes</button> -->
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
     </div>
 </div>

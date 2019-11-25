@@ -3,7 +3,10 @@ from django.views.generic.list import ListView
 from django.views.generic.detail import DetailView
 from django.views.generic.edit import CreateView, UpdateView
 from django.db.models import Sum
-from .models import Site
+from django.http import JsonResponse
+from django.urls import reverse
+from .models import Site, Rating
+from .forms import SiteForm
 
 # Create your views here.
  
@@ -36,7 +39,6 @@ class SiteDetailView(DetailView):
             context["content"] = int(content)
             context["design"] = int(design)
             context["usability"] = int(usability)
-            # context["count"] = count
         else:
             context["content"] = 0
             context["design"] = 0
@@ -48,3 +50,19 @@ class SiteUpdateView(UpdateView):
     model = Site
     template_name = 'edit_site.html'
     fields = ('cover', 'title', 'description', 'tags')
+
+
+def vote(request):
+    design = request.POST.get('design_range')
+    content = request.POST.get('content_range')
+    usability = request.POST.get('usability_range')
+    site_id = request.POST.get('site_id')
+
+    site = Site.objects.get(id=site_id)
+    if len(Rating.objects.filter(author=request.user, site=site)) == 0:
+        rating = Rating(design=design, usability=usability, content=content, site=site, author=request.user)
+        rating.save()
+        data = {'success': 'Thank you for voting for us!'}
+    else:
+        data = {'success':'Sorry, You can only vote once!'}
+    return JsonResponse(data)
