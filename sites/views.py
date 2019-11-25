@@ -19,11 +19,16 @@ class SiteDetailView(DetailView):
         context = super().get_context_data(**kwargs)                     
         site = Site.objects.get(id=self.object.id)
         count = len(site.rating.all())
-        content = (site.rating.all().aggregate(Sum('content')).get('content__sum'))/count * 10
-        design = (site.rating.all().aggregate(Sum('design')).get('design__sum'))/count *10
-        usability = (site.rating.all().aggregate(Sum('usability')).get('usability__sum'))/count *10
-        context["content"] = int(content)
-        context["design"] = int(design)
-        context["usability"] = int(usability)
-        context["count"] = count
+        if count > 0:
+            content = (site.rating.all().aggregate(Sum('content')).get('content__sum'))/count * 10
+            design = (site.rating.all().aggregate(Sum('design')).get('design__sum'))/count *10
+            usability = (site.rating.all().aggregate(Sum('usability')).get('usability__sum'))/count *10
+            context["content"] = int(content)
+            context["design"] = int(design)
+            context["usability"] = int(usability)
+            # context["count"] = count
+        else:
+            context["content"] = 0
+            context["design"] = 0
+            context["usability"] = 0
         return context
