@@ -42,3 +42,9 @@ class SiteDetailView(DetailView):
             context["design"] = 0
             context["usability"] = 0
         return context
+
+
+class SiteUpdateView(UpdateView):
+    model = Site
+    template_name = 'edit_site.html'
+    fields = ('cover', 'title', 'description', 'tags')

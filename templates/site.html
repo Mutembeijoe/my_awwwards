@@ -3,6 +3,12 @@
 <div class="site_page">
     <div class="row">
         <div class="col-md-8 mx-auto">
+            {% if user == object.author %}
+            <div class="my-3">
+                <a href="{% url 'edit_site' object.id %}" class="btn btn-primary btn-sm">Edit</a>
+                <a href="" class="btn btn-danger btn-sm">Delete</a>
+            </div>
+            {% endif %}
             <div class="site_jumbo" style="background-image: url({{object.cover.url}});">
                 <div class="h-100 w-100 jumbo_opacity">
                 </div>
