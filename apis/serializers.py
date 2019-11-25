@@ -12,5 +12,5 @@ class ProfileSerializer(serializers.ModelSerializer):
 class SiteSerializer(serializers.ModelSerializer):
     class Meta:
         model = Site
-        fields = ('id', 'title', 'author', 'description', 'cover', 'tags', 'created_at' )
+        fields = ('id', 'title', 'author', 'description', 'cover', 'link','tags', 'created_at' )
         

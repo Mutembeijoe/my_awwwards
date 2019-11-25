@@ -13,7 +13,7 @@ from .forms import SiteForm
 class SiteCreateView(CreateView):
     model = Site
     template_name = 'add_site.html'
-    fields = ('cover','title','description','tags')
+    fields = ('cover','title','link','description','tags')
 
     def form_valid(self, form):
         form.instance.author = self.request.user
@@ -49,7 +49,7 @@ class SiteDetailView(DetailView):
 class SiteUpdateView(UpdateView):
     model = Site
     template_name = 'edit_site.html'
-    fields = ('cover', 'title', 'description', 'tags')
+    fields = ('cover', 'title', 'link', 'description', 'tags')
 
 
 def vote(request):
