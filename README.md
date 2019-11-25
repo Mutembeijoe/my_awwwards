@@ -16,7 +16,7 @@ my_awwards is a clone of the popular awwards web platform. The site is meant to 
 * You can view the live version of the app in [Live page](https://my-awwwards.herokuapp.com/ "my_awwwards")
 
 ## Screenshots
-![image](https://github.com/Mutembeijoe/personalis-gallery/blob/master/screenshot/my_awwards.png)
+![image](https://github.com/Mutembeijoe/my_awwwards/blob/master/screenshot/my_awwards.png)
 
 
 ## Technologies Used
