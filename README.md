@@ -17,6 +17,7 @@ my_awwards is a clone of the popular awwards web platform. The site is meant to 
 
 ## Screenshots
 ![image](https://github.com/Mutembeijoe/my_awwwards/blob/master/screenshot/my_awwards.png)
+![image](https://github.com/Mutembeijoe/my_awwwards/blob/master/screenshot/site.png)
 
 
 ## Technologies Used
